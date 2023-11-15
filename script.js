@@ -61,29 +61,101 @@ window.onload = function() {
                 previous.innerHTML = "";
                 current.innerHTML = "";
             }
+
+            else if (buttons[i].dataset.value === "delete")
+            {
+                if (operator === "")
+                {
+                    display_current = display_current.slice(0, -1);
+                    num1 = Number(display_current);
+                    current.innerHTML = display_current;
+                }
+                else
+                {
+                    display_current = display_current.slice(0, -1);
+                    num2 = Number(display_current);
+                    current.innerHTML = display_current;
+                    previous.innerHTML = num1 + " " + operator + " " + display_current;
+                }
+            }
+
+            else if (buttons[i].dataset.value === "sign")
+            {
+                display_current += "-";
+            }
+
             else if (buttons[i].dataset.value === "+")
             {
-                operator = "+";
-                previous.innerHTML = display_current + " " + operator;
-                display_current = "";
+                if (num2 == 0)
+                {
+                    operator = "+";
+                    previous.innerHTML = display_current + " " + operator;
+                    display_current = "";
+                }
+                else
+                {
+                    num1 = operate(operator, num1, num2);
+                    num2 = "";
+                    operator = "+";
+                    display_current = "";
+                    current.innerHTML = num1;
+                    previous.innerHTML = num1 + " " + operator;
+                }
             }
             else if (buttons[i].dataset.value === "-")
             {
-                operator = "-";
-                previous.innerHTML = display_current + " " + operator;
-                display_current = "";
+                if (num2 == 0)
+                {
+                    operator = "-";
+                    previous.innerHTML = num1+ " " + operator;
+                    display_current = "";
+                }
+
+                else
+                {
+                    num1 = operate(operator, num1, num2);
+                    num2 = "";
+                    operator = "-";
+                    display_current = "";
+                    current.innerHTML = num1;
+                    previous.innerHTML =num1 + " " + operator;
+                }
             }
             else if (buttons[i].dataset.value === "*")
             {
-                operator = "*";
-                previous.innerHTML = display_current + " " + operator;
-                display_current = "";
+                if (num2 == 0)
+                {
+                    operator = "*";
+                    previous.innerHTML = display_current + " " + operator;
+                    display_current = "";
+                }
+                else
+                {
+                    num1 = operate(operator, num1, num2);
+                    num2 = "";
+                    operator = "*";
+                    display_current = "";
+                    current.innerHTML = num1;
+                    previous.innerHTML = num1 + " " + operator;
+                }
             }
             else if (buttons[i].dataset.value === "/")
             {
-                operator = "/";
-                previous.innerHTML = display_current + " " + operator;
-                display_current = "";
+                if (num2 == 0)
+                {
+                    operator = "/";
+                    previous.innerHTML = display_current + " " + operator;
+                    display_current = "";
+                }
+                else
+                {
+                    num1 = operate(operator, num1, num2);
+                    num2 = "";
+                    operator = "/";
+                    display_current = "";
+                    current.innerHTML = num1;
+                    previous.innerHTML = num1 + " " + operator;
+                }
             }
             else if (buttons[i].dataset.value === "=")
             {
