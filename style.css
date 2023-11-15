@@ -26,18 +26,46 @@ body {
     width: 100%;
     height: 20%;
     border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.previous {
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+}
+
+.current {
+    font-size: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 70%;
 }
 
 .buttons {
     width: calc(25% - 10px);
     height: 13%;
     border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
     font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.5s ease;
 }
 
 #zero {
     width: calc(50% - 10px);
+}
+
+.buttons:hover {
+    background-color: blue !important;
 }
