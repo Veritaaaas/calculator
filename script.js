@@ -15,6 +15,10 @@ function multiply(num1, num2)
 
 function divide(num1, num2)
 {
+    if (num2 == 0)
+    {
+        return "Error";
+    }
     return num1 / num2;
 }
 
@@ -160,10 +164,16 @@ window.onload = function() {
             else if (buttons[i].dataset.value === "=")
             {
                 num1 = operate(operator, num1, num2);
+                display_current = String(num1);
+
+                if (num1 === "Error")
+                {
+                    num1 = "";
+                }
                 num2 = "";
                 operator = "";
-                display_current = String(num1);
-                current.innerHTML = num1;
+                current.innerHTML = display_current;
+                display_current = "";
             }
 
             else
